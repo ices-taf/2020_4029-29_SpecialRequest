@@ -1,35 +1,35 @@
-species,stock_code,contact,area
-Cod,cod.27.47d20,Nicola Walker,NORTH SEA
-Haddock,had.27.46a20,Harriet Cole,NORTH SEA
-Saithe,pok.27.3a46,Marc Taylor,NORTH SEA
-Whiting,whg.27.47d,Tanja Miethe and Alan Baudron,NORTH SEA
-Plaice,ple.27.420,Chun Chen,NORTH SEA
-Cod,cod.27.6a,Helen Dobby,NORTH WESTERN WATERS
-Cod,cod.27.6b,Helen Holah,NORTH WESTERN WATERS
-Cod,cod.27.7a,Pia Schuchert,NORTH WESTERN WATERS
-Cod,cod.27.7e-k,Marianne Robbert,NORTH WESTERN WATERS
-Haddock,had.27.6b,Vladimir Khlivnoy,NORTH WESTERN WATERS
+species,stock_code,contact,area,type,partial,code
+Cod,cod.27.47d20,Nicola Walker,NORTH SEA,age,intercatch,taf
+Haddock,had.27.46a20,Harriet Cole,NORTH SEA,age,intercatch,taf
+Saithe,pok.27.3a46,Marc Taylor,NORTH SEA,age,intercatch,taf
+Whiting,whg.27.47d,Tanja Miethe and Alan Baudron,NORTH SEA,age,intercatch,taf-form
+Plaice,ple.27.420,Chun Chen,NORTH SEA,age,intercatch,taf
+Cod,cod.27.6a,Helen Dobby,NORTH WESTERN WATERS,age,intercatch,soa
+Cod,cod.27.6b,Helen Holah,NORTH WESTERN WATERS,landings,intercatch,no
+Cod,cod.27.7a,Pia Schuchert,NORTH WESTERN WATERS,DL3.1,intercatch,taf
+Cod,cod.27.7e-k,Marianne Robbert,NORTH WESTERN WATERS,,,
+Haddock,had.27.6b,Vladimir Khlivnoy,NORTH WESTERN WATERS,age,intercatch,sharepoint
 Haddock,had.27.7a,Mathieu Lundy,NORTH WESTERN WATERS
-Haddock,had.27.7b-k,Jonathan White,NORTH WESTERN WATERS
-Saithe,pok.27.7-10,,NORTH WESTERN WATERS
+Haddock,had.27.7b-k,Jonathan White,NORTH WESTERN WATERS,age,intercatch,sao
+Saithe,pok.27.7-10,,NORTH WESTERN WATERS,none,intecatch,no
 Whiting,whg.27.6a,Andrzej Jaworski,NORTH WESTERN WATERS
 Whiting,whg.27.6b,Andrzej Jaworski,NORTH WESTERN WATERS
-Whiting,whg.27.7a,Sara-Jane Moore,NORTH WESTERN WATERS
-Whiting,whg.27.7b-ce-k,David Stokes,NORTH WESTERN WATERS
-Plaice,ple.27.7a,Tim Earl,NORTH WESTERN WATERS
-Plaice,ple.27.7e,Simon Fischer,NORTH WESTERN WATERS
-Plaice,ple.27.7bc,Claire Moore,NORTH WESTERN WATERS
+Whiting,whg.27.7a,Sara-Jane Moore,NORTH WESTERN WATERS,age,intercatch,sharpepoint
+Whiting,whg.27.7b-ce-k,David Stokes,NORTH WESTERN WATERS,age,intercatch,sharepoint
+Plaice,ple.27.7a,Tim Earl,NORTH WESTERN WATERS,age,intercatch,sharepoint
+Plaice,ple.27.7e,Simon Fischer,NORTH WESTERN WATERS,age,intercatch,taf
+Plaice,ple.27.7bc,Claire Moore,NORTH WESTERN WATERS,landings,intercatch,no
 Plaice,ple.27.7fg,Vladimir Laptikhovsky,NORTH WESTERN WATERS
-Plaice,ple.27.7h-k,Claire Moore,NORTH WESTERN WATERS
+Plaice,ple.27.7h-k,Claire Moore,NORTH WESTERN WATERS,no-assessment-2020,NA,no
 Hake,hke.27.3a46-8abd,Dorleta Garcia,SOUTH WESTERN WATERS
-Hake,hke.27.8c9a,Santiago Cervino and Hugo Mendes,SOUTH WESTERN WATERS
-Whiting,whg.27.89a,Cristina Silva,SOUTH WESTERN WATERS
+Hake,hke.27.8c9a,Santiago Cervino and Hugo Mendes,SOUTH WESTERN WATERS,cat3,intercatch,no
+Whiting,whg.27.89a,Cristina Silva,SOUTH WESTERN WATERS,landings,intercatch,no
 Megrim,ldb.27.7b-k8abd,Eoghan Kelly,SOUTH WESTERN WATERS
 Megrim,ldb.27.8c9a,Esther Abad,SOUTH WESTERN WATERS
-Megrim,meg.27.7b-k8abd,Ane Iriondo,SOUTH WESTERN WATERS
+Megrim,meg.27.7b-k8abd,Ane Iriondo,SOUTH WESTERN WATERS,age,intercatch,sharepoint
 Megrim,meg.27.8c9a,Esther Abad,SOUTH WESTERN WATERS
 Cod,cod.27.22-24,Marie Storr-Paulsen,BALTIC SEA
-Cod,cod.27.24-32,Margit Eero,BALTIC SEA
-Plaice,ple.27.21-23,Elliot Brown,BALTIC SEA
+Cod,cod.27.24-32,Margit Eero,BALTIC SEA,age,intercatch,taf
+Plaice,ple.27.21-23,Elliot Brown,BALTIC SEA,age,intercatch,soa
 Hake,NA,,MEDITERRANEAN SEA
 Red mullet,NA,,MEDITERRANEAN SEA
