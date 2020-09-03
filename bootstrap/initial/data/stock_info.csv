@@ -31,5 +31,13 @@ Megrim,meg.27.8c9a,Esther Abad,SOUTH WESTERN WATERS,age,intercatch,excel-file
 Cod,cod.27.22-24,Marie Storr-Paulsen,BALTIC SEA,,,
 Cod,cod.27.24-32,Margit Eero,BALTIC SEA,age,intercatch,taf
 Plaice,ple.27.21-23,Elliot Brown,BALTIC SEA,age,intercatch,soa
-Hake,NA,,MEDITERRANEAN SEA,,,
-Red mullet,NA,,MEDITERRANEAN SEA,,,
+Hake,hke.gsa.1_5_6_7,,MEDITERRANEAN SEA,age,gfcm-stecf,pdf
+Hake,hke.gsa.9_10_11,,MEDITERRANEAN SEA,age,gfcm-stecf,pdf
+Hake,hke.gsa.17_18,,MEDITERRANEAN SEA,age,gfcm-stecf,pdf
+Red mullet,mut.gsa.1,,MEDITERRANEAN SEA,age,gfcm-stecf,pdf
+Red mullet,mut.gsa.6,,MEDITERRANEAN SEA,age,gfcm-stecf,pdf
+Red mullet,mut.gsa.7,,MEDITERRANEAN SEA,age,gfcm-stecf,pdf
+Red mullet,mut.gsa.9,,MEDITERRANEAN SEA,age,gfcm-stecf,pdf
+Red mullet,mut.gsa.10,,MEDITERRANEAN SEA,age,gfcm-stecf,pdf
+Red mullet,mut.gsa.17_18,,MEDITERRANEAN SEA,age,gfcm-stecf,pdf
+Striped Red mullet,mur.gsa.5,,MEDITERRANEAN SEA,age,gfcm-stecf,pdf
