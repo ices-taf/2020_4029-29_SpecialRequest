@@ -10,6 +10,7 @@
 #' @tafAccess Restricted
 #' @tafSource script
 
+library(icesTAF)
 taf.library(icesSharePoint)
 
 spgetfile(

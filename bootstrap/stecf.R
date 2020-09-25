@@ -7,6 +7,7 @@
 #' @tafAccess Restricted
 #' @tafSource script
 
+library(icesTAF)
 taf.library(icesSharePoint)
 
 site <- "/admin/Requests"
