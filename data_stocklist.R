@@ -8,7 +8,7 @@ library(dplyr)
 
 mkdir("data")
 
-stocks <- read.taf(taf.data.path("stock_info.csv"))
+stocks <- read.taf(taf.data.path("stock_info", "stock_info.csv"))
 
 stock_table <-
   stocks %>%
