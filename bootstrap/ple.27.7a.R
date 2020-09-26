@@ -25,19 +25,19 @@ unlink("temp", recursive = TRUE)
 
 # read lowestoft file
 fdata <- faytable(fit_b9)
-years <- scan(fname, sep = "\t", nlines = 1, skip = 2, quiet = TRUE)
-years <- years[1]:years[2]
-ages <- scan(fname, sep = "\t", nlines = 1, skip = 3, quiet = TRUE)
-ages <- ages[1]:ages[2]
+years <- as.numeric(rownames(fdata))
+ages <- as.numeric(colnames(fdata))
 
 data <-
   data.frame(
     year = rep(years, length(ages)),
     age = rep(ages, each = length(years)),
-    harvest = fdata
+    harvest = c(fdata)
   )
 
 write.taf(data)
 
-# clean up
-unlink(taf.data.path("whg.27.7a", "Assessment"), recursive = TRUE)
+cat(
+  "Please note that this stock is unique (among finfish stocks) in that 40% of the discards are assumed to survive. The fishing mortalities therefore do not give the total catch, instead they give the dead catch which is the landings plus 60% of the discards. ",
+  file = "README.md"
+)
