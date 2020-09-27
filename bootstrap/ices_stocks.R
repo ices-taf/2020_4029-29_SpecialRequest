@@ -18,7 +18,8 @@ taf_urls <-
     "had.27.46a20" = "2020_had.27.46a20_assessment",
     "pok.27.3a46" = "2020_pok.27.3a46_assessment",
     "ple.27.420" = "2020_ple.27.420_assessment",
-    "ple.27.7e", "2020_ple.27.7e_assessment"
+    "ple.27.7e", "2020_ple.27.7e_assessment",
+    "hke.27.3a46-8abd" = "2020_hke.27.3a46-8abd_assessment"
   )
 
 # sao runs
@@ -36,7 +37,9 @@ noncat1 <-
     "whg.27.6b" = "no assessment",
     "ple.27.7bc" = "6",
     "ple.27.7h-k" = "no assessment",
-    "ple.27.7fg" = "biomass"
+    "ple.27.7fg" = "biomass",
+    "whg.27.89a" = "no assessment",
+    "ldb.27.7b-k8abd" = "5"
   )
 
 # stecf to ices codes
