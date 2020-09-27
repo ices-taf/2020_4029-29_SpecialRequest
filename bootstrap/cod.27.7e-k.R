@@ -1,6 +1,6 @@
-#' Data from whg.27.7b-ce-k
+#' Data from cod.27.7e-k
 #'
-#' @name whg.27.7b-ce-k
+#' @name cod.27.7e-k
 #' @format csv file
 #' @tafOriginator ICES, WGCSE
 #' @tafYear 2020
@@ -10,13 +10,13 @@
 library(icesTAF)
 source(taf.boot.path("..", "utilities_bootstrap.R"))
 
-data <- get_soa_fs("whg.7b-ce-k_FRA_Sept20")
+data <- get_soa_fs("Cod7ek_Finale")
 
 write.taf(data)
 
 cat(
   "NOTE:",
-  "* check with Dave that the final assessment is: whg.7b-ce-k_FRA_Sept20",
+  "* check with Marianne that the final assessment is: Cod7ek_Finale",
   file = "README.md",
   sep = "\n"
 )
