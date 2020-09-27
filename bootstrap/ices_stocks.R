@@ -41,18 +41,3 @@ noncat1 <-
     "whg.27.89a" = "no assessment",
     "ldb.27.7b-k8abd" = "5"
   )
-
-# stecf to ices codes
-stecf_codes <-
-  c(
-    "hke.gsa.1_5_6_7" = "HKE1567",
-    "hke.gsa.9_10_11" = "HKE91011",
-    "hke.gsa.17_18" = "HKE1718SS3", # not "HKE1718a4a",
-    "mur.gsa.5" = "MUR5",
-    "mut.gsa.1" = "MUT1",
-    "mut.gsa.6" = "MUT6",
-    "mut.gsa.7" = "MUT7",
-    "mut.gsa.9" = "MUT8",
-    "mut.gsa.10" = "MUT10",
-    "mut.gsa.17_18" = "MUT1718"
-  )
