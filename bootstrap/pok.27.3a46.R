@@ -17,5 +17,5 @@ data <-
     age = rep(ages, each = length(years)),
     harvest = unname(unlist(fdata[, -1]))
   )
-
+data$stock_code <- "pok.27.3a46"
 write.taf(data)

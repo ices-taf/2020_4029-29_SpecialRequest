@@ -33,11 +33,11 @@ data <-
     age = rep(ages, each = length(years)),
     harvest = c(fdata)
   )
-
+data$stock_code <- "meg.27.7b-k8abd"
 write.taf(data)
 
 cat(
-  "# Note:
+  "Note:
 * ages and years guessed from the report,
 * no data on sharepoint - possibly not checked in",
   file = "README.md"

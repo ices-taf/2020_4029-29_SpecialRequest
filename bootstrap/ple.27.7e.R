@@ -20,5 +20,5 @@ data <-
     age = rep(ages, each = length(years)),
     harvest = unname(unlist(fdata[, c(-1, -ncol(fdata))]))
   )
-
+data$stock_code <- "ple.27.7e"
 write.taf(data)

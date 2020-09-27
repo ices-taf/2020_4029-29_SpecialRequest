@@ -43,7 +43,7 @@ data <-
     age = rep(ages, each = length(years)),
     harvest = c(t(fdata[, -1]))
   )
-
+data$stock_code <- "meg.27.8c9a"
 write.taf(data)
 
 # clean up

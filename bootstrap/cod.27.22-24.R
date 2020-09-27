@@ -18,7 +18,7 @@ run <- "WBcod_2020_split_an006"
 # stockassessment::ssbplot(fit)
 
 data <- get_soa_fs(run)
-
+data$stock_code <- "cod.27.22-24"
 data
 
 write.taf(data)

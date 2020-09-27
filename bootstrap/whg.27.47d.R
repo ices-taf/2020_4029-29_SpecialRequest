@@ -11,5 +11,5 @@ library(icesTAF)
 source(taf.boot.path("..", "utilities_bootstrap.R"))
 
 data <- get_soa_fs("NSwhiting_2020_new_method_new1")
-
+data$stock_code <- "whg.27.47d"
 write.taf(data)

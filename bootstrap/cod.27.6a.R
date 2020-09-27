@@ -11,5 +11,6 @@ library(icesTAF)
 source(taf.boot.path("..", "utilities_bootstrap.R"))
 
 data <- get_soa_fs("cod6a_WGCSE2020_final")
+data$stock_code <- "cod.27.6a"
 
 write.taf(data)

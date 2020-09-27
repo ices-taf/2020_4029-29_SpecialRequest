@@ -35,6 +35,7 @@ data <-
     harvest = unname(unlist(fdata[, -1]))
   )
 
+data$stock_code <- "had.27.6b"
 write.taf(data)
 
 # clean up
