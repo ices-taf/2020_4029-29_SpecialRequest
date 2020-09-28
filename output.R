@@ -1,27 +1,25 @@
-## Preprocess data, write TAF data tables
+## Extract results of interest, write TAF output tables
 
 ## Before:
 ## After:
 
 library(icesTAF)
-library(dplyr)
-library(httr)
 
-hke <-
-  read.taf(
-    taf.data.path(
-      "stecf",
-      "FatAGE_HKE_MUT_MUR.csv"
-    )
-  )
+mkdir("output")
 
-head(hke)
+# read harvest information
+all_data <- read.taf("data/all_stocks.csv")
+stocks <- read.taf(taf.data.path("stock_info", "stock_info.csv"))
 
 # split off one stock
 
-HKE1567 <- hke %>% filter(Stock == "HKE1567")
+data <- all_data %>% filter(stock_code == "cod.27.47d20")
 
 # assume age based numeric data
+make_upload_json <- function(data) {
+
+}
+
 
 info <-
   list(
@@ -46,6 +44,3 @@ body <- list(info = info, values = values)
 url <- "https://localhost:5001/api/upload"
 
 POST(url, body = body, encode = "json", verbose())
-
-
-DELETE(url)

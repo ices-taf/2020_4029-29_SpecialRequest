@@ -11,6 +11,7 @@
 #' @tafSource script
 
 library(icesTAF)
+library(dplyr)
 taf.library(icesSharePoint)
 
 spgetfile(
@@ -19,3 +20,10 @@ spgetfile(
   "https://community.ices.dk",
   destdir = "."
 )
+
+# do not include MED stocks
+stock_info <-
+  read.taf("stock_info.csv") %>%
+  filter(area != "MEDITERRANEAN SEA")
+
+write.taf("stock_info")
