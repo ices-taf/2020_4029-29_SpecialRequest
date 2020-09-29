@@ -9,32 +9,37 @@ mkdir("output")
 
 # read harvest information
 all_data <- read.taf("data/all_stocks.csv")
-stocks <- read.taf(taf.data.path("stock_info", "stock_info.csv"))
+stocks <- read.taf("data/stock_info.csv")
 
-# split off one stock
-stk <- "cod.27.47d20"
+for (stock in stocks$stock_code) {
+  # split off one stock
+  # stock <- "cod.27.47d20"
 
-# assume user has a data.frame in wide format, ages on top
-data <-
-  all_data %>%
-  filter(stock_code == stk) %>%
-  select(year, age, harvest) %>%
-  long2taf()
+  # assume user has a data.frame in wide format, ages on top
+  data <-
+    all_data %>%
+    filter(stock_code == stock) %>%
+    select(year, age, harvest) %>%
+    long2taf()
 
-assessment_info <-
-  list(
-    unit = "F", # vocabulary
-    valueType = "harvest", # vocabulary
-    stockCode = stk # vocabulary
-  )
+  if (nrow(data) == 0) {
+    msg(stock, " has no data")
+    next
+  }
 
-devtools::load_all("D:\\projects\\git\\ices-tools-prod\\icesTAF")
+  assessment_info <-
+    list(
+      unit = "F", # vocabulary
+      valueType = "harvest", # vocabulary
+      stockCode = stock # vocabulary
+    )
 
-# check
-upload.fay(data, assessment_info, only.check = TRUE, quiet = FALSE)
+  # check
+  ok <- upload.fay(data, assessment_info, only.check = TRUE)
+  if (!ok) {
+    msg(stock, " json did not pass")
+    next
+  }
 
-upload.fay(data, assessment_info)
-
-# check upload
-(tags <- get.stockassessments())
-get.stockassessment.results("2020_cod.27.47d20_assessment@v0.1")
+  #upload.fay(data, assessment_info)
+}

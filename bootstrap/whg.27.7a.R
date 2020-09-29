@@ -40,6 +40,7 @@ data <-
     harvest = fdata
   )
 data$stock_code <- "whg.27.7a"
+data$assessment_year <- 2020
 write.taf(data)
 
 # clean up

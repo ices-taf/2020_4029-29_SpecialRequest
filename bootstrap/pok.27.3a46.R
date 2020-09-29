@@ -18,4 +18,5 @@ data <-
     harvest = unname(unlist(fdata[, -1]))
   )
 data$stock_code <- "pok.27.3a46"
+data$assessment_year <- 2020
 write.taf(data)

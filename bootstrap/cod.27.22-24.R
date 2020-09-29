@@ -8,25 +8,29 @@
 #' @tafSource script
 
 library(icesTAF)
-library(glue)
-source(taf.boot.path("..", "utilities_bootstrap.R"))
+taf.library(icesSharePoint)
 
-run <- "WBcod_2020_split"
-run <- "WBcod_2020_split_an006"
+spgetfile(
+  "Documents/Preliminary documents/bootstrap_initial_data/cod.27.22-24/f-at-age.csv",
+  "/admin/Requests",
+  "https://community.ices.dk",
+  destdir = "."
+)
 
-# fit <- fitfromweb(run)
-# stockassessment::ssbplot(fit)
+# read lowestoft file
+fdata <- read.taf("f-at-age.csv")
+years <- fdata$Year
+ages <- as.numeric(colnames(fdata)[-1])
 
-data <- get_soa_fs(run)
+data <-
+  data.frame(
+    year = rep(years, length(ages)),
+    age = rep(ages, each = length(years)),
+    harvest = unname(unlist(fdata[, -1]))
+  )
 data$stock_code <- "cod.27.22-24"
-data
-
+data$assessment_year <- 2020
 write.taf(data)
 
-cat(
-  "NOTE:",
-  glue("* check with Marie that the final assessment is: {run}"),
-  "* it was not clear if the SOA fit matched with the report.",
-  file = "README.md",
-  sep = "\n"
-)
+# clean up
+unlink("f-at-age.csv")

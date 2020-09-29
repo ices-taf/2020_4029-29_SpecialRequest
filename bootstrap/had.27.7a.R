@@ -17,7 +17,6 @@ spgetfile(
   destdir = "."
 )
 
-
 # read lowestoft file
 fdata <- read.taf("f-at-age.csv")
 years <- fdata$year
@@ -30,6 +29,7 @@ data <-
     harvest = unname(unlist(fdata[, -1]))
   )
 data$stock_code <- "had.27.7a"
+data$assessment_year <- 2020
 write.taf(data)
 
 cat(

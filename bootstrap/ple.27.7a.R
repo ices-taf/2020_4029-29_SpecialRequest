@@ -35,6 +35,7 @@ data <-
     harvest = c(fdata)
   )
 data$stock_code <- "ple.27.7a"
+data$assessment_year <- 2020
 write.taf(data)
 
 cat(

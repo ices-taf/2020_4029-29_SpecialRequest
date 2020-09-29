@@ -12,4 +12,5 @@ source(taf.boot.path("..", "utilities_bootstrap.R"))
 
 data <- get_soa_fs("Cod_7ek_WGCSE2020")
 data$stock_code <- "cod.27.7e-k"
+data$assessment_year <- 2020
 write.taf(data)

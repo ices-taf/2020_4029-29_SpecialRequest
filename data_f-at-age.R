@@ -16,7 +16,7 @@ data <-
   lapply(dirs, function(x) {
     fname <- taf.data.path(x, "data.csv")
     if (file.exists(fname)) {
-      read.taf(fname)[c("stock_code", "year", "age","harvest")]
+      read.taf(fname)[c("stock_code", "year", "age", "harvest", "assessment_year")]
     } else {
       NULL
     }

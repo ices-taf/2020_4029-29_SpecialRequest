@@ -36,6 +36,7 @@ data <-
   )
 
 data$stock_code <- "had.27.6b"
+data$assessment_year <- 2020
 write.taf(data)
 
 # clean up

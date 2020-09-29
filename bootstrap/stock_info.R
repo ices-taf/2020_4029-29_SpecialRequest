@@ -28,14 +28,20 @@ stock_info <-
   read.taf("stock_info.csv") %>%
   filter(area != "MEDITERRANEAN SEA")
 
+# get
+
 
 # read in SAG data
-sag <- icesSAG::getListStocks(2020)
+sag <-
+  rbind(
+    icesSAG::getListStocks(2019),
+    icesSAG::getListStocks(2020)
+  )
 
 sag <-
   sag %>%
   tibble() %>%
-  filter(AssessmentYear == 2020 & StockKeyLabel %in% stock_info$stock_code) %>%
+  filter(StockKeyLabel %in% stock_info$stock_code) %>%
   select(AssessmentKey, AssessmentYear, StockKeyLabel, Status, SAGStamp)
 
 # read in SD data
@@ -44,7 +50,7 @@ sd <- icesSD::getSD()
 sd <-
   sd %>%
   tibble() %>%
-  filter(ActiveYear == 2020 & StockKeyLabel %in% stock_info$stock_code) %>%
+  filter(ActiveYear %in% c(2019, 2020) & StockKeyLabel %in% stock_info$stock_code) %>%
   select(
     StockKeyLabel, SpeciesCommonName, ActiveYear,
     EcoRegion, ExpertGroup, DataCategory, AssessmentType
@@ -54,9 +60,9 @@ stock_info %>%
   tibble() %>%
   select(stock_code, contact, area) %>%
   left_join(sd, by = c("stock_code" = "StockKeyLabel")) %>%
-  left_join(sag, by = c("stock_code" = "StockKeyLabel")) %>%
+  left_join(sag, by = c("stock_code" = "StockKeyLabel", "ActiveYear" = "AssessmentYear")) %>%
   select(
     SpeciesCommonName, area, stock_code, DataCategory, ExpertGroup,
-    AssessmentType, AssessmentYear, Status
+    AssessmentType, ActiveYear, Status
   ) %>%
   write.taf(file = "stock_info.csv", quote = TRUE)
