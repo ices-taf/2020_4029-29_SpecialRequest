@@ -38,6 +38,7 @@ data$stock_code <- "ple.27.7a"
 write.taf(data)
 
 cat(
-  "Please note that this stock is unique (among finfish stocks) in that 40% of the discards are assumed to survive. The fishing mortalities therefore do not give the total catch, instead they give the dead catch which is the landings plus 60% of the discards. ",
+  "Please note that this stock is unique (among finfish stocks) in that 40% of the discards are assumed to survive. The fishing mortalities therefore do not give the total catch, instead they give the dead catch which is the landings plus 60% of the discards.
+",
   file = "README.md"
 )

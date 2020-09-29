@@ -25,8 +25,7 @@ stock_table <-
       "NORTH SEA",
       "NORTH WESTERN WATERS",
       "SOUTH WESTERN WATERS",
-      "BALTIC SEA",
-      "MEDITERRANEAN SEA"
+      "BALTIC SEA"
     )
 
 stock_table

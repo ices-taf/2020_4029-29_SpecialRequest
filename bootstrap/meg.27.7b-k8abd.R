@@ -39,6 +39,7 @@ write.taf(data)
 cat(
   "Note:
 * ages and years guessed from the report,
-* no data on sharepoint - possibly not checked in",
+* no data on sharepoint - possibly not checked in
+",
   file = "README.md"
 )

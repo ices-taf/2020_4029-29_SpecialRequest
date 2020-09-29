@@ -34,7 +34,8 @@ write.taf(data)
 
 cat(
   "NOTE:
-* F taken from report, nothing on sharepoint",
+* F taken from report, nothing on sharepoint
+",
   file = "README.md"
 )
 
