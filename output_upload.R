@@ -67,7 +67,7 @@ for (stock in stocks$stock_code) {
     next
   }
 
-  comment <- c(comment, "passed")
+  comment <- c(comment, "uploaded")
   upload.fay(data, assessment_info)
 }
 
@@ -75,4 +75,5 @@ stocks$comment <- comment
 stocks %>%
   arrange(DataCategory, ExpertGroup) %>%
   select(-have_data) %>%
-  as.data.frame()
+  as.data.frame() %>%
+  write.taf("stock_upload_summary.csv", dir = "output", quote = TRUE)

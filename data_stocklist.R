@@ -10,7 +10,7 @@ mkdir("data")
 
 stocks <- read.taf(taf.data.path("stock_info", "stock_info.csv"))
 
-stock_table <-
+requested_stocks <-
   stocks %>%
     by(
       stocks$area,
@@ -28,6 +28,6 @@ stock_table <-
       "BALTIC SEA"
     )
 
-stock_table
+requested_stocks
 
-write.taf(stock_table, dir = "data")
+write.taf(requested_stocks, dir = "data")
