@@ -9,11 +9,37 @@ mkdir("output")
 
 # read harvest information
 all_data <- read.taf("data/all_stocks.csv")
-stocks <- read.taf("data/stock_info.csv")
+stocks <- read.taf(taf.data.path("stock_info", "stock_info.csv"))
+
+data_years <-
+  all_data %>%
+  select(stock_code, assessment_year) %>%
+  mutate(
+    have_data = TRUE
+  ) %>%
+  distinct()
+
+stocks <-
+  stocks %>%
+  left_join(data_years, by = c("stock_code", "ActiveYear" = "assessment_year")) %>%
+  mutate(
+    have_data = !is.na(have_data)
+  ) %>%
+  by(.$stock_code, function(x) {
+    if (any(x$have_data)) x[which(x$have_data), ] else x[which.max(x$ActiveYear), ]
+  }) %>%
+  unclass() %>%
+  do.call(rbind, .) %>%
+  tibble()
+
+
+
+comment <- character(0)
 
 for (stock in stocks$stock_code) {
   # split off one stock
-  # stock <- "cod.27.47d20"
+  # stock <- stocks$stock_code[1]
+  # stock <- "cod.27.7e-k"
 
   # assume user has a data.frame in wide format, ages on top
   data <-
@@ -23,7 +49,7 @@ for (stock in stocks$stock_code) {
     long2taf()
 
   if (nrow(data) == 0) {
-    msg(stock, " has no data")
+    comment <- c(comment, "no data")
     next
   }
 
@@ -37,9 +63,16 @@ for (stock in stocks$stock_code) {
   # check
   ok <- upload.fay(data, assessment_info, only.check = TRUE)
   if (!ok) {
-    msg(stock, " json did not pass")
+    comment <- c(comment, "json failed check")
     next
   }
 
-  #upload.fay(data, assessment_info)
+  comment <- c(comment, "passed")
+  upload.fay(data, assessment_info)
 }
+
+stocks$comment <- comment
+stocks %>%
+  arrange(DataCategory, ExpertGroup) %>%
+  select(-have_data) %>%
+  as.data.frame()
