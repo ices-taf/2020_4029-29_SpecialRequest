@@ -10,7 +10,7 @@ library(httr)
 stocks <- read.taf(taf.data.path("stock_info", "stock_info.csv"))
 
 dirs <- dir(taf.data.path())
-dirs <- c(dirs[dirs %in% stocks$stock_code], "stecf")
+dirs <- dirs[dirs %in% stocks$stock_code]
 
 data <-
   lapply(dirs, function(x) {

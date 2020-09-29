@@ -15,7 +15,7 @@ stock_table <-
     by(
       stocks$area,
       function(x) {
-        x <- unique(x$species)
+        x <- unique(x$SpeciesCommonName)
         c(x, rep("", 5))[1:5]
       }
     ) %>%
