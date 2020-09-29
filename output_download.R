@@ -8,21 +8,26 @@ library(dplyr)
 
 mkdir("output")
 
-devtools::load_all("D:\\projects\\git\\ices-tools-prod\\icesTAF")
-
-# download stock info from TAF DB
+stocks <- read.taf("output/stock_upload_summary.csv")
 
 # choose which dataset we want
 (tags <- get.stockassessments())
 
-tag <-
-  tags %>%
-  filter(stockCode == "cod.27.47d20", activeYear == 2020) %>%
-  select(name) %>%
-  unlist()
+flqs <- list()
 
-# download it as csv (taf format)
-fdata <- get.stockassessment.results(tag)
+for (stock in stocks$stock_code) {
+  # stock <- stocks$stock_code[1]
+  tag <- tags %>% filter(stockCode == stock)
+  if (nrow(tag) == 0) next
 
-# download as FLQuant?
-fdata.flq <- get.stockassessment.results(tag, asFLQuant = TRUE)
+  # download it as csv (taf format)
+  fdata <- get.stockassessment.results(tag$name)
+  write.taf(fdata, file = paste0(stock, "_fatage.csv"), dir = "output")
+
+  # download as FLQuant?
+  flqs[[stock]] <- get.stockassessment.results(tag$name, asFLQuant = TRUE)
+}
+
+flquants <- FLCore::FLQuants(flqs)
+
+save(flquants, file = "output/FLQuants_fatage.RData")
