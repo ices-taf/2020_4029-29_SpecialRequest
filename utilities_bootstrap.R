@@ -2,7 +2,7 @@ require(stockassessment)
 
 get_soa_fs <- function(run) {
 
-  fit <- fitfromweb(run)
+  fit <- fitfromweb(run, character.only = TRUE)
 
   fdata <- faytable(fit)
   ages <- as.numeric(colnames(fdata))

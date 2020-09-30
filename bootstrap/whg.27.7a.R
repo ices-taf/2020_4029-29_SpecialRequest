@@ -17,14 +17,10 @@ spgetfile(
   destdir = "."
 )
 
-unzip("Assessment.zip")
+unzip("Assessment.zip", exdir = "temp")
 unlink("Assessment.zip")
 
-fname <-
-  taf.data.path(
-    "whg.27.7a",
-    "\\Assessment\\1_Data\\LowestoftFiles\\WHG27.7a.F_run1_new.txt"
-  )
+fname <- "temp/Assessment/1_Data/LowestoftFiles/WHG27.7a.F_run1_new.txt"
 
 # read lowestoft file
 fdata <- scan(fname, sep = "\t", skip = 5)
@@ -35,8 +31,8 @@ ages <- ages[1]:ages[2]
 
 data <-
   data.frame(
-    year = rep(years, length(ages)),
-    age = rep(ages, each = length(years)),
+    year = rep(years, each = length(ages)),
+    age = rep(ages, length(years)),
     harvest = fdata
   )
 data$stock_code <- "whg.27.7a"
