@@ -39,6 +39,7 @@ files <-
     taf.data.path("disclaimer", "disclaimer.txt"),
     "data/requested_stocks.csv",
     "report/fatage-csv.zip",
+    "report/qc_report.html",
     #"report/catage-csv.zip",
     "output/FLQuants_fatage.RData",
     "output/stock_upload_summary.csv"
