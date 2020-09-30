@@ -7,5 +7,5 @@ library(icesTAF)
 
 mkdir("output")
 
-#source("output_upload.R")
+source("output_upload.R")
 source("output_download.R")

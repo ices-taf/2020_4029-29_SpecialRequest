@@ -16,8 +16,8 @@ data$assessment_year <- 2020
 write.taf(data)
 
 cat(
-  "NOTE:",
-  "* check with Dave that the final assessment is: whg.7b-ce-k_FRA_Sept20",
-  file = "README.md",
-  sep = "\n"
+  "NOTE:
+* Due to an ongoing benchmark for this stock, advice release was postponed for 2020. Advice is being drafted and is due to be published on the October 30th, so F-at-age is not final, and will be updated int he DB when approved.
+",
+  file = "README.md"
 )
