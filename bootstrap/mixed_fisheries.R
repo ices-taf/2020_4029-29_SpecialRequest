@@ -13,9 +13,12 @@
 library(icesTAF)
 taf.library(icesSharePoint)
 
-spgetfile(
-  "Documents/Preliminary documents/bootstrap_initial_data/mixfish/catch.csv",
-  "/admin/Requests",
-  "https://community.ices.dk",
-  destdir = "."
-)
+# skip mixfish data
+if (FALSE) {
+  spgetfile(
+    "Documents/Preliminary documents/bootstrap_initial_data/mixfish/catch.csv",
+    "/admin/Requests",
+    "https://community.ices.dk",
+    destdir = "."
+  )
+}
