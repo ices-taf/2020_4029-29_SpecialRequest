@@ -1,0 +1,21 @@
+---
+  title: fatage-qc
+  output: html_document
+---
+<style>
+.main-container {
+    max-width: 90%
+}
+</style>
+
+```{r, echo = FALSE}
+ggplotly(p1, width = 1400, height = 900)
+```
+
+```{r, echo = FALSE}
+ggplotly(p2, width = 1400, height = 900)
+```
+
+```{r, echo = FALSE}
+ggplotly(p3, width = 1400, height = 900)
+```
