@@ -34,9 +34,9 @@ data_specific <-
     "Also included is catches by stock and age for the major fleet components."
   )
 
-recomended_citation <- "ICES. 2020. EU request on the production of matrices by year and age with F-at-age for stocks corresponding to the latest published advice for each stock. In Report of the ICES Advisory Committee, 2020. ICES Advice 2020, sr.2020.11. https://doi.org/10.17895/ices.advice.xxxx"
+recomended_citation <- "ICES. 2020. EU request on the production of matrices by year and age with F-at-age for stocks corresponding to the latest published advice for each stock. In Report of the ICES Advisory Committee, 2020. ICES Advice 2020, sr.2020.11. https://doi.org/10.17895/ices.advice.7497"
 
-metadata <- "https://doi.org/10.17895/ices.advice.xxxx"
+metadata <- "https://doi.org/10.17895/ices.advice.7497"
 
 # apply to sections
 # data specific info

@@ -35,7 +35,7 @@ zip(
 # zip up with disclaimer, and advice document
 files <-
   c(
-    # taf.data.path("eu.2020.11.pdf"),
+    taf.data.path("eu.2020.11.pdf"),
     taf.data.path("disclaimer", "disclaimer.txt"),
     "data/requested_stocks.csv",
     "report/fatage-csv.zip",
