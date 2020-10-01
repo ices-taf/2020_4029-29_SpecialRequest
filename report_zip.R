@@ -40,7 +40,7 @@ files <-
     "data/requested_stocks.csv",
     "report/fatage-csv.zip",
     "report/qc_report.html",
-    "fatage_partial-csv.zip",
+    "report/fatage_partial-csv.zip",
     "output/FLQuants_fatage.RData",
     "output/stock_upload_summary.csv"
   )
