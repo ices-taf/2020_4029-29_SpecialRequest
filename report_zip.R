@@ -21,13 +21,13 @@ zip(
 )
 
 # make a zip of the catches at age by stock and fleet
-catage.files <- dir("output", full.names = TRUE, pattern = "*_fatage.csv")
+fatage_partial.files <- dir("output", full.names = TRUE, pattern = "^fatage_partial_.*.csv$")
 zip(
   file.path(
     "report",
-    "catage-csv.zip"
+    "fatage_partial-csv.zip"
   ),
-  catage.files,
+  fatage_partial.files,
   extras = "-j"
 )
 
@@ -40,10 +40,11 @@ files <-
     "data/requested_stocks.csv",
     "report/fatage-csv.zip",
     "report/qc_report.html",
-    #"report/catage-csv.zip",
+    "fatage_partial-csv.zip",
     "output/FLQuants_fatage.RData",
     "output/stock_upload_summary.csv"
   )
+
 
 #' Data output: EU request on the production of matrices by year and
 #' age with F-at-age for stocks corresponding to the latest published
@@ -72,4 +73,4 @@ zip(
 
 # clean up
 unlink("report/fatage-csv.zip")
-unlink("report/catage-csv.zip")
+unlink("report/fatage_partial-csv.zip")
