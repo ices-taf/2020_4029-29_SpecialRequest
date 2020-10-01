@@ -30,6 +30,9 @@ pfdata$ftype <- rep(names(tables), sapply(tables, nrow))
 stocks <- unique(pfdata$stock_code)
 ftypes <- unique(pfdata$ftype)
 
+# check
+pfdata %>% filter(ftype == "fishing_cat") %>% select(fleet_grp)
+
 
 plot_lists <- list()
 

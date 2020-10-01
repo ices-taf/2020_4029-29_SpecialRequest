@@ -1,11 +1,11 @@
 # given a gear grouping, calculate the partial Fs
 require(dplyr)
 
-calc_partial_f_data <- function(ic_data, gear_table, fatage, fleet_group) {
+calc_partial_f_data <- function(intercatch, gear_table, fatage, fleet_group) {
   gear_table$fleet_grp <- gear_table[[fleet_group]]
 
   # calculate sum over fleets
-  ic_data %>%
+  intercatch %>%
     left_join(gear_table, by = "Fleet") %>%
     group_by(
       stock_code, year, age, fleet_grp

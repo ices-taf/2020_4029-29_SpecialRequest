@@ -10,5 +10,9 @@ fatage_partial <- get(objname)
 
 # write out tables
 for (opt in names(fatage_partial)) {
-  write.taf(fatage_partial[[opt]], file = paste0("fatage_partial_", opt, ".csv"), dir = "output")
+  write.taf(
+    fatage_partial[[opt]],
+    file = paste0("fatage_partial_", opt, ".csv"),
+    dir = "output"
+  )
 }

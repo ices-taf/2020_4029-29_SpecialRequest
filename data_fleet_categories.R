@@ -59,7 +59,12 @@ lookup <-
     fishing_cat = rep(names(lookup), sapply(lookup, length))
   )
 
-gear_table <- gear_table %>% left_join(lookup, by = "Level4")
+gear_table <-
+  gear_table %>%
+  left_join(lookup, by = "Level4") %>%
+  mutate(
+    fishing_cat = ifelse(is.na(fishing_cat), Fleet, fishing_cat)
+  )
 
 gear_table %>%
   select(Level4, Level4_name) %>%

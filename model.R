@@ -24,7 +24,7 @@ opts <- c("fishing_cat", "Level4", "Level5")
 
 for (opt in opts) {
   fatage_partial[[opt]] <-
-    calc_partial_f_data(ic_clean, gear_table, fatage, opt)
+    calc_partial_f_data(intercatch, gear_table, fatage, opt)
 }
 
 
@@ -33,4 +33,14 @@ with(fatage_partial[[1]], table(stock_code, fleet_grp))
 with(fatage_partial[[2]], table(stock_code, fleet_grp))
 with(fatage_partial[[3]], table(stock_code, fleet_grp))
 
+fatage_partial[[1]] %>% select(fleet_grp) %>% distinct()
+fatage_partial[[2]] %>% select(fleet_grp) %>% distinct()
+fatage_partial[[3]] %>% select(fleet_grp) %>% distinct()
+
+
 save(fatage_partial, file = "model/fatage_partial.RData")
+
+# cheks
+pfdata %>%
+  filter(ftype == "fishing_cat") %>%
+  select(fleet_grp)
