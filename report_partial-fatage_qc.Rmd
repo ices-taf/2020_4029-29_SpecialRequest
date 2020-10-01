@@ -21,4 +21,38 @@ ggplotly_full <- function(p) {
 
 # Partial F-at-age Quality Control Plots {.tabset}
 
-## Fishing Category fleets
+## Fishing Category fleets {.tabset}
+
+### Proportion caught (number) {.tabset}
+
+```{r, echo = FALSE, results = "asis"}
+res <- lapply(stocks, function(x) {
+  knitr::knit_child(text = c(
+    '',
+    '#### `r x`',
+    '',
+    '```{r}',
+    'ggplotly_full(prop_yfa[[x]])',
+    '```',
+    ''
+  ), envir = environment(), quiet = TRUE)
+})
+cat(unlist(res), sep = '\n')
+```
+
+### Partial F at age {.tabset}
+
+```{r, echo = FALSE, results = "asis"}
+res <- lapply(stocks, function(x) {
+  knitr::knit_child(text = c(
+    '',
+    '#### `r x`',
+    '',
+    '```{r}',
+    'ggplotly_full(pfatage_ayf[[x]])',
+    '```',
+    ''
+  ), envir = environment(), quiet = TRUE)
+})
+cat(unlist(res), sep = '\n')
+```
