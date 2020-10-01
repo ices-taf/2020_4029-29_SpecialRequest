@@ -11,11 +11,12 @@
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
-  echo = FALSE
+  echo = FALSE,
+  message = FALSE
 )
 
 ggplotly_full <- function(p) {
-  ggplotly(p, width = 1600, height = 800)
+  ggplotly(p, width = 1600, height = 700)
 }
 ```
 
@@ -23,36 +24,27 @@ ggplotly_full <- function(p) {
 
 ## Fishing Category fleets {.tabset}
 
-### Proportion caught (number) {.tabset}
-
-```{r, echo = FALSE, results = "asis"}
-res <- lapply(stocks, function(x) {
-  knitr::knit_child(text = c(
-    '',
-    '#### `r x`',
-    '',
-    '```{r}',
-    'ggplotly_full(prop_yfa[[x]])',
-    '```',
-    ''
-  ), envir = environment(), quiet = TRUE)
-})
-cat(unlist(res), sep = '\n')
+```{r}
+plot_list <- plot_lists[["fishing_cat"]]
 ```
 
-### Partial F at age {.tabset}
+```{r, child=c('report_partial_f_template.Rmd')}
+```
 
-```{r, echo = FALSE, results = "asis"}
-res <- lapply(stocks, function(x) {
-  knitr::knit_child(text = c(
-    '',
-    '#### `r x`',
-    '',
-    '```{r}',
-    'ggplotly_full(pfatage_ayf[[x]])',
-    '```',
-    ''
-  ), envir = environment(), quiet = TRUE)
-})
-cat(unlist(res), sep = '\n')
+## Metier Level 4 fleets {.tabset}
+
+```{r}
+plot_list <- plot_lists[["Level4"]]
+```
+
+```{r, child=c('report_partial_f_template.Rmd')}
+```
+
+## Metier Level 5 fleets {.tabset}
+
+```{r}
+plot_list <- plot_lists[["Level5"]]
+```
+
+```{r, child=c('report_partial_f_template.Rmd')}
 ```
