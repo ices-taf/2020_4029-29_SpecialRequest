@@ -31,7 +31,7 @@ disclaimer <- readLines(disclaimer_url)
 data_specific <-
   paste(
     "The zip file contains csv files of F-at-age by stock, along with an R object of a named list of FLQuants containing the same information.",
-    "Also included is partial F and proportion of the total catch in numbers by stock and age for various fleet components.  Three gear groupings are provided, from a high level, describing the type of fishing (e.g. Otter trawl, pelagic trawl), a more detailed grouping based on metier level 4 codes, and a more detailed still based on metier level 5.  Metier level 5 is provided in case the user wished to construct thier own fleet grouping."
+    "Also included is partial F and proportion of the total catch in numbers by stock and age for various fleet components.  Three gear groupings are provided: a high level one, based the type of fishing (e.g. Otter trawl, pelagic trawl); a more detailed grouping based on metier level 4 codes; and the third more detailed still based on metier level 5 codes.  The most detailed level is provided in case the user wished to construct their own fleet grouping, and is likely to be too disaggregated to reflect the selectivities of these components accurately."
   )
 
 recomended_citation <- "ICES. 2020. EU request on the production of matrices by year and age with F-at-age for stocks corresponding to the latest published advice for each stock. In Report of the ICES Advisory Committee, 2020. ICES Advice 2020, sr.2020.11. https://doi.org/10.17895/ices.advice.7497"

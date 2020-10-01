@@ -43,7 +43,8 @@ files <-
     "report/qc_partial-fatage.html",
     "report/fatage_partial-csv.zip",
     "output/FLQuants_fatage.RData",
-    "output/stock_upload_summary.csv"
+    "output/stock_upload_summary.csv",
+    "data/gear_table.csv"
   )
 
 
@@ -53,8 +54,14 @@ files <-
 #'
 #' The zip file contains csv files of F-at-age by stock, along with
 #' an R object of a named list of FLQuants containing the same
-#' information. Also included is catches by stock and age for the
-#' major fleet components
+#' information.
+#' Also included is partial F and proportion of the total catch in
+#' numbers by stock and age for various fleet components.  Three gear
+#' groupings are provided, from a high level, describing the type of
+#' fishing (e.g. Otter trawl, pelagic trawl), a more detailed grouping
+#' based on metier level 4 codes, and a more detailed still based on
+#' metier level 5.  Metier level 5 is provided in case the user wished
+#' to construct thier own fleet grouping.
 #'
 #' @name ICES.2020.matrices-of-F-at-age-for-selected-stocks.zip
 #' @references \url{https://ices.dk}
