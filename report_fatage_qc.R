@@ -8,6 +8,10 @@ library(tidyr)
 library(ggplot2)
 library(plotly)
 
+# ----
+# fatage upload and download checks
+# ----
+
 fatage.csv <-
   dir("output", pattern = "*._fatage.csv", full = TRUE) %>%
   lapply(
@@ -21,21 +25,21 @@ fatage.csv <-
   mutate(age = as.numeric(age))
 
 #
-p1 <-
+fatage_ays <-
   ggplot(data = fatage.csv) +
     geom_line(aes(x = age, y = value, col = factor(Year))) +
     facet_wrap( ~ stock)
 
 #
-p2 <-
+fatage_yas <-
   ggplot(data = fatage.csv) +
   geom_line(aes(x = Year, y = value, col = factor(age))) +
   facet_wrap(~stock)
 
 #
-p3 <-
+fatage_ysa <-
   ggplot(data = fatage.csv) +
   geom_line(aes(x = Year, y = value, col = factor(stock))) +
   facet_wrap(~age)
 
-rmarkdown::render("report_qc.Rmd", output_file = "qc_report", output_dir = "report")
+rmarkdown::render("report_fatage_qc.Rmd", output_file = "qc_fatage", output_dir = "report")
