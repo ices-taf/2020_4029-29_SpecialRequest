@@ -8,12 +8,11 @@
 #' @tafSource script
 
 library(icesTAF)
-source(taf.boot.path("..", "utilities_bootstrap.R"))
 
-data <- get_soa_fs("WBcod_2020_split")
+fdata <- read.taf("https://taf.ices.dk/fs/2020_cod.27.22-24_assessment/output/fatage.csv")
+
+data <- taf2long(fdata, c("year", "age", "harvest"))
 data$stock_code <- "cod.27.22-24"
 data$assessment_year <- 2020
-
-data <- filter(data, age %in% 1:7)
 
 write.taf(data)
