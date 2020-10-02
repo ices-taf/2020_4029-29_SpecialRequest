@@ -20,28 +20,48 @@ spgetfile(
 unzip("outputsXSA.zip", exdir = "temp")
 unlink("outputsXSA.zip")
 
-res <- readLines("temp/meg278c9a_results2019.csv")
+res <- readLines("temp/meg278c9a_tables2019.csv")
 
 # read xsa output file
-fline1 <- grep("Fishing mortalities", res)
-nrows <- which(nchar(res[(fline1 + 2):length(res)]) == 0)[1]
+fline1 <- grep("Table  8", res)
+fline2 <- grep("^0  FBAR", res)
+
+nrows <- unique(fline2 - fline1)
 
 fdata <-
-  read.csv(
-    "temp/meg278c9a_results2019.csv",
-    skip = fline1, nrows = nrows - 1,
-    check.names = FALSE
+  do.call(
+    rbind,
+    lapply(
+      fline1,
+      function(i) {
+        tmp <- tempfile()
+        cat(
+          gsub("YEAR", "Age", res[i + c(1, 4:(nrows - 1))]),
+          sep = "\n", file = tmp
+        )
+        x <- read.csv(tmp, check.names = FALSE)
+        x <-
+          if (any(grepl("FBAR", names(x)))) {
+            names(x) <- c(names(x)[-1], "")
+            x[, -ncol(x) + 1:0]
+          } else {
+            x <- x[, -ncol(x)]
+            row.names(x) <- x[, 1]
+            x[, -1]
+          }
+        t(x)
+      }
+    )
   )
-fdata <- fdata[complete.cases(fdata), ]
 
-ages <- fdata$Age
-years <- as.numeric(colnames(fdata)[-1])
+ages <- as.numeric(colnames(fdata)[1]) - 1 + 1:ncol(fdata)
+years <- as.numeric(rownames(fdata))
 
 data <-
   data.frame(
     year = rep(years, length(ages)),
     age = rep(ages, each = length(years)),
-    harvest = c(t(fdata[, -1]))
+    harvest = c(fdata)
   )
 data$stock_code <- "meg.27.8c9a"
 data$assessment_year <- 2020
