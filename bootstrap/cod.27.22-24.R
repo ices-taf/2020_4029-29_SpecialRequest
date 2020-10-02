@@ -8,29 +8,12 @@
 #' @tafSource script
 
 library(icesTAF)
-taf.library(icesSharePoint)
+source(taf.boot.path("..", "utilities_bootstrap.R"))
 
-spgetfile(
-  "Documents/Preliminary documents/bootstrap_initial_data/cod.27.22-24/f-at-age.csv",
-  "/admin/Requests",
-  "https://community.ices.dk",
-  destdir = "."
-)
-
-# read lowestoft file
-fdata <- read.taf("f-at-age.csv")
-years <- fdata$Year
-ages <- as.numeric(colnames(fdata)[-1])
-
-data <-
-  data.frame(
-    year = rep(years, length(ages)),
-    age = rep(ages, each = length(years)),
-    harvest = unname(unlist(fdata[, -1]))
-  )
+data <- get_soa_fs("WBcod_2020_split")
 data$stock_code <- "cod.27.22-24"
 data$assessment_year <- 2020
-write.taf(data)
 
-# clean up
-unlink("f-at-age.csv")
+data <- filter(data, age %in% 1:7)
+
+write.taf(data)
