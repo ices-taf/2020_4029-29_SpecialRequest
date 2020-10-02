@@ -39,8 +39,3 @@ fatage_partial[[3]] %>% select(fleet_grp) %>% distinct()
 
 
 save(fatage_partial, file = "model/fatage_partial.RData")
-
-# cheks
-pfdata %>%
-  filter(ftype == "fishing_cat") %>%
-  select(fleet_grp)
