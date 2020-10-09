@@ -10,13 +10,6 @@ mkdir("output")
 
 stocks <- read.taf("output/stock_upload_summary.csv")
 
-# do not inclide the three WGCSE ones for now
-stocks <-
-  stocks %>%
-    filter(
-      !stock_code %in% c("cod.27.7e-k", "had.27.7b-k", "whg.27.7b-ce-k")
-    )
-
 # choose which dataset we want
 (tags <- get.stockassessments())
 
